@@ -28,7 +28,7 @@ public class ProdutoService {
     //Read
     public List<Produto> buscarTodos(){
 
-        return repository.findAllByOrderIdAsc();
+        return repository.findAllByOrderByIdAsc();
     }
     //Delete
     public void deletar(Long id){
