@@ -38,10 +38,11 @@ public class ProdutoService {
     public Produto atualizar(Long id, Produto produtoAtualizado){
         Produto produtoExistente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        produtoExistente.setId(id);
         produtoExistente.setName(produtoAtualizado.getName());
         produtoExistente.setPrice(produtoAtualizado.getPrice());
         produtoExistente.setDescription(produtoAtualizado.getDescription());
         produtoExistente.setBrand(produtoAtualizado.getBrand());
-        return repository.save(produtoAtualizado);
+        return repository.save(produtoExistente);
     }
 }
